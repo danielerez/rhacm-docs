@@ -36,9 +36,13 @@ There is currently no workaround for this issue.
 == The {global-hub} search is not enabled 
 //2.12:15075
 
-If you installed your {mce-short} into a customized namespace, then you cannot enable the {global-hub} search, because in this case, the search operator failed to add the `globalSearchFeatureFlag`. 
+If you installed your {mce-short} into a customized namespace, then you cannot enable the {global-hub} search. In this case, the search operator fails to update the `console-mce-config` config map because it added the `globalSearchFeatureFlag=true`, preventing you from enabling the {global-hub} search.
 
-There is currently no workaround for this issue. 
+To workaround this issue, you must manually place the `console-mce-config` config map in the correct namespace by running the following command: 
+
+----
+oc patch configmap console-mce-config -n {{MCE_NAMESPACE}} -p '{"data": {"globalSearchFeatureFlag": "enabled"}}'
+----
 
 [#kafka-clusters-recreate-global-hub]
 == Kafka clusters cannot deploy if re-creating the {global-hub} custom resource 

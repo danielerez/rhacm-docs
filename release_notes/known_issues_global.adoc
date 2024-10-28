@@ -33,7 +33,7 @@ If you import a managed hub cluster in the hosted mode and detach this managed h
 There is currently no workaround for this issue. 
 
 [#search-not-enabled]
-== The {global-hub} search is not enabled 
+== The {global-hub} Search is not enabled 
 //2.12:15075
 
 If you installed your {mce-short} into a customized namespace, then you cannot enable the {global-hub} search. In this case, the search operator fails to update the `console-mce-config` config map because it added the `globalSearchFeatureFlag=true`, preventing you from enabling the {global-hub} search.

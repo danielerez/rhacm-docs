@@ -40,7 +40,7 @@ spec:
 ----
 
 +
-For more information about the required and optional fields, see xref:../../rhacm-docs/apis/clusterinstance.json.adoc#clusterinstance[ClusterInstance].
+For more information about the required and optional fields, see link:../../rhacm-docs/apis/clusterinstance.json.adoc#clusterinstance[ClusterInstance].
 
 . Apply the changes.
 

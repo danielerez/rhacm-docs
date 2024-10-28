@@ -1,4 +1,4 @@
-[#clusterInstance-api]
+[#clusterinstance-api]
 = ClusterInstance API
 
 [[_rhacm-docs_apis_clusterinstance_jsonoverview]]

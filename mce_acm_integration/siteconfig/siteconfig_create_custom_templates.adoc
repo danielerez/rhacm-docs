@@ -40,7 +40,7 @@ data:
 oc apply -f my-custom-secret.yaml
 ----
 
-. Reference your template in the `ClusterInstance` CR named `clusterinstance-my-custom-secret.yaml`:
+. Reference your template in the `ClusterInstance` custom resource named `clusterinstance-my-custom-secret.yaml`:
 
 +
 [source,yaml]
@@ -55,7 +55,7 @@ spec:
     ...
 ----
 
-. Apply the `ClusterInstance` CR by running the following command:
+. Apply the `ClusterInstance` custom resource by running the following command:
 
 +
 [source,terminal]

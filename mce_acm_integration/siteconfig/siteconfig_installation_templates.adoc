@@ -1,8 +1,9 @@
 [#install-templates]
 = Installation templates overview
 
-installation templates are data-driven templates that are used to generate the set of installation artifacts.
-These templates follow the Golang text and template format, and they are instantiated by using data from the `ClusterInstance` CR.
+Installation templates are data-driven templates that are used to generate the set of installation artifacts.
+
+These templates follow the Golang text and template format, and they are instantiated by using data from the `ClusterInstance` custom resource.
 
 This enables dynamic creation of installation manifests for each target cluster that has similar configurations, but with different values.
 
@@ -25,7 +26,7 @@ You can customize the templated fields. The {sco} supports all link:https://mast
 
 Additionally, the `ClusterInstance` API provides the following function that you can use while creating your custom manifests:
 
-`toYaml`:: The `toYaml` function encodes an item into a YAML string. If the item cannot be converted to YAML the function returns an empty string.
+`toYaml`:: The `toYaml` function encodes an item into a YAML string. If the item cannot be converted to YAML, the function returns an empty string.
 
 See the following example of the `.toYaml` specification in the `ClusterInstance.Spec.Proxy` field:
 
@@ -109,7 +110,7 @@ You can add one or several manifests to a single wave. If you do not specify a v
 
 The {sco} reconciles the manifests in ascending order when creating or updating resources and it deletes resources in descending order.
 
-In the following example, if the {sco} creates or updates the manifests, the `AgentClusterInstall` and `ClusterDeployment` CRs are reconciled in the first wave, while `KlusterletAddonConfig` and `ManagedCluster` CRs are reconciled in the third wave.
+In the following example, if the {sco} creates or updates the manifests, the `AgentClusterInstall` and `ClusterDeployment` custom resources are reconciled in the first wave, while `KlusterletAddonConfig` and `ManagedCluster` custom resources are reconciled in the third wave.
 
 [source,yaml]
 ----
@@ -141,4 +142,4 @@ metadata:
   namespace: example-namespace
 ----
 
-If the {sco} deletes the resources, `KlusterletAddonConfig` and `ManagedCluster` CRs are the first to be deleted, while the `AgentClusterInstall` and `ClusterDeployment` CRs are the last.
+If the {sco} deletes the resources, `KlusterletAddonConfig` and `ManagedCluster` custom resources are the first to be deleted, while the `AgentClusterInstall` and `ClusterDeployment` custom resources are the last.

@@ -74,7 +74,7 @@ The {sco} provides the following default, validated, and immutable set of templa
 `NetworkConfigMap`
 |===
 
-*Note:* Certain fields are only relevant to either the Assisted Installer or the IBI Operator installation method. For more information, see xref:../../apis/clusterinstance.json.adoc#clusterinstance-api[ClusterInstance API].
+*Note:* Certain fields are only relevant to either the Assisted Installer or the IBI Operator installation method. For more information, see link:../../apis/clusterinstance.json.adoc#clusterinstance-api[ClusterInstance API].
 
 [#special-template-variables]
 == Special template variables

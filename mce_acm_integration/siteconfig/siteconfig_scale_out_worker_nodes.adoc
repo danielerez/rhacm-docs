@@ -39,6 +39,7 @@ spec:
 ...
 ----
 
++
 For more information about the required and optional fields, see xref:../../rhacm-docs/apis/clusterinstance.json.adoc#clusterinstance[ClusterInstance].
 
 . Apply the changes.
@@ -75,7 +76,9 @@ master-node1.example.com            provisioned                 true            
 worker-node2.example.com            provisioning                true             44m
 ----
 
-. Verify that the `Node`, `Agent`, and `BareMetalHost` resources are created by running the following commands on the hub cluster:
+. Verify that the `Node`, `Agent`, and `BareMetalHost` resources are created.
+
+.. Verify that the `Node` resources are removed by running the following command on the hub cluster: 
 
 +
 [source,terminal]
@@ -84,11 +87,15 @@ oc get managedclusterinfo/<managed_cluster_name> -n <managed_cluster_namespace> 
 -o jsonpath='{range .status.nodeList[*]}{.name}{"\t"}{.conditions}{"\t"}{.labels}{"\n"}{end}'
 ----
 
+.. Verify that the `Agent` resources are removed by running the following command on the hub cluster:
+
 +
 [source,terminal]
 ----
 oc get agents -n <managed_cluster_namespace>
 ----
+
+.. Verify that the `BareMetalHost` resources are removed by running the following command on the hub cluster:
 
 +
 [source,terminal]

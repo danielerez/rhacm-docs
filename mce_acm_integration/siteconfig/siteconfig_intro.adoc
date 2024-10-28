@@ -25,7 +25,7 @@ Troubleshooting:: Offers insightful information regarding cluster deployment sta
 
 For more information about the Image Based Install Operator, see link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/edge_computing/image-based-installation-for-single-node-openshift[Image-based installations for {sno}].
 
-For more information about the Assisted Installer, see link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/installing_an_on-premise_cluster_with_the_agent-based_installer/index[Installing an on-premise cluster using the Assisted Installer]
+For more information about the {ai}, see link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/installing_an_on-premise_cluster_with_the_agent-based_installer/index[Installing an on-premise cluster using the {ai}]
 
 [#operator-flow]
 == The {sco} flow

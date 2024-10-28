@@ -119,7 +119,6 @@ oc get managedclusterinfo/<managed_cluster_name> -n <managed_cluster_namespace> 
 
 . Verify that the `Agent` resources are removed by running the following command on the hub cluster:
 
-
 +
 [source,terminal]
 ----

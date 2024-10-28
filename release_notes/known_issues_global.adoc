@@ -40,6 +40,7 @@ If you installed your {mce-short} into a customized namespace, then you cannot e
 
 To workaround this issue, you must manually place the `console-mce-config` config map in the correct namespace by running the following command: 
 
+[source,bash]
 ----
 oc patch configmap console-mce-config -n {{MCE_NAMESPACE}} -p '{"data": {"globalSearchFeatureFlag": "enabled"}}'
 ----

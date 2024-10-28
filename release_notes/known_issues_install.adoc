@@ -29,13 +29,12 @@ For more about deprecations and removals, see xref:../release_notes/acm_deprecat
 
 [#uninstall-manual-remove-cr]
 == Uninstalling and reinstalling earlier versions with an upgrade can fail
-//2.10:10953
+//2.10:10953 and 2:12:14343, to name a few issues for this
 
-Uninstalling {acm-short} from {ocp-short} can cause issues if you later want to install earlier versions and then upgrade. For instance, when you uninstall {acm-short} from {ocp-short}, then install an earlier version of {acm-short} and upgrade that version, the upgrade might fail. The upgrade fails if the `StorageVersionMigration` custom resources were not removed.
+Uninstalling {acm-short} from {ocp-short} can cause issues if you later want to install earlier versions and then upgrade. For instance, when you uninstall {acm-short}, then install an earlier version of {acm-short} and upgrade that version, the upgrade might fail. The upgrade fails if the custom resources were not removed.
 
-When you uninstall {acm-short}, you need to manually remove the previous `StorageVersionMigration` before you reinstall and upgrade.
+Follow the link:../cleanup_reinstall.adoc#cleanup-reinstall[Cleaning up artifacts before reinstalling] procedure to prevent this problem.
 
-For example, if you uninstall {acm-short} 2.10 from {ocp-short} to use an earlier version of {acm-short}, then you attempt to upgrade to 2.10 again, the upgrade fails unless you remove `StorageVersionMigration` resources.
 
 [#install-arm-diable]
 == Infrastructure operator error with ARM converged flow
@@ -75,7 +74,7 @@ The agent appears in the inventory when the issue is resolved.
 
 [#upgrade-remaining-resource]
 == Deprecated resources remain after upgrade to Errata releases
-//2.6X: 26987
+//2.6X: 26987 -//very old, we need to consider removing
 
 After you upgrade from 2.4.x to 2.5.x, and then to 2.6.x, deprecated resources in the managed cluster namespace might remain. You need to manually delete these deprecated resources if version 2.6.x was upgraded from 2.4.x:
 
@@ -104,7 +103,7 @@ manifestworks.work.open-cluster-management.io:
 
 [#upgrade-pod-not-up]
 == Pods might not come back up after upgrading {acm-short}
-// 2.5, 2.4: 23730
+// 2.5, 2.4: 23730 -//very old, we need to consider removing
 
 After upgrading {acm-short} to a new version, a few pods that belong to a `StatefulSet` might remain in a `failed` state. This infrequent event is caused by a known link:https://github.com/kubernetes/kubernetes/issues/60164[Kubernetes issue].
 
@@ -112,13 +111,13 @@ As a workaround for this problem, delete the failed pod. Kubernetes automaticall
 
 [#openshift-container-platform-cluster-upgrade-failed-status]
 == OpenShift Container Platform cluster upgrade failed status
-// 2.0.0:3442
+// 2.0.0:3442// we should document an OCP known issue. I did not add this and have been vocal against this. It is better to point to their known issues
 
 When an {ocp-short} cluster is in the upgrade stage, the cluster pods are restarted and the cluster might remain in `upgrade failed` status for a variation of 1-5 minutes. This behavior is expected and resolves after a few minutes.
 
 [#create-multiclusterengine-button-not-working]
 == Create MultiClusterEngine button not working
-//2.6:25641
+//2.6:25641---//very old, we need to consider removing
 
 After installing {acm} in the {ocp} console, a pop-up window with the following message appears:
 

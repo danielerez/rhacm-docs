@@ -19,3 +19,4 @@ For more information, review the API documentation for each of the following res
 * xref:../api/placement.json.adoc#placements-clusters-api[Placements API (v1beta1)]
 * link:../api/placementdecision.json.adoc#placementdecisions-api[PlacementDecisions API (v1beta1)]
 * xref:../api/managed_serviceaccount.json.adoc#serviceaccount-api[ManagedServiceAccount API]
+* xref:../api/klusterletconfig.json.adoc#klusterletconfig-api[KlusterletConfig API (v1alpha1)]

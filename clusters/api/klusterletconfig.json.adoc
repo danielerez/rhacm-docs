@@ -458,7 +458,7 @@ __required__|Parameters describing the KlusterletConfig you want to create.|<<_r
 [[_rhacm-docs_apis_klusterletconfig_jsonqueryklusterletconfig]]
 === Query a single klusterletconfig
 ....
-GET /klusterletconfigs.config.open-cluster-management.io/v1alpha1/klusterletconfigs/{klusterletconfig_name}
+GET /config.open-cluster-management.io/v1alpha1/klusterletconfigs/{klusterletconfig_name}
 ....
 
 

@@ -33,10 +33,7 @@ See the following known issues for the Application lifecycle component.
 == Application topology displays invalid expression 
 //2.12:ACM-15077
 
-When you use the `Exist` or `DoesNotExist` operators in the `Placement` resource, the application topology node details display the expressions as `#invalidExpr`. This display is wrong, and the expression is still valid and works in the `Placement` resource. To workaround around this issue, complete the following steps: 
-
-. Open the `Placement` resource YAML. 
-. Find the invalid expression and edit it. 
+When you use the `Exist` or `DoesNotExist` operators in the `Placement` resource, the application topology node details display the expressions as `#invalidExpr`. This display is wrong, and the expression is still valid and works in the `Placement` resource. To workaround this issue, edit the expression inside the `Placement` resource YAML. 
 
 [#editing-subscription-placement-rule]
 == Editing subscription applications with _PlacementRule_ does not display the subscription YAML in editor

@@ -6,30 +6,23 @@ After running Submariner end-to-end tests, you might get failures. Use the follo
 [#symptom-submariner-data-plane]
 == Symptom: Submariner end-to-end data plane test fails
 
-When the end-to-end data plane tests fails, the Submariner tests shows a successful connection even though the pods remain in the `listening` phase. 
+When the end-to-end data plane tests fails, the Submariner tests show that the connector pod can connect to the listener pod, but later the connector pod gets stuck in the `listening` phase. 
 
 [#resolving-submariner-data-plane]
 == Resolving the problem: Running a data plane test with a small packet size 
 
-The maximum transmission unit (MTU) can cause the end-to-end data plane test failure. Verify if the MTU causes the failure by running an end-to-end data plane test that uses a small packet size. To run this kind of test, complete the following step: 
+The maximum transmission unit (MTU) can cause the end-to-end data plane test failure. For example, the MTU might cause the `inter-cluster` traffic over the Internet Protocol Security (IPsec) to fail. Verify if the MTU causes the failure by running an end-to-end data plane test that uses a small packet size. To run this kind of test, complete the following step: 
 
 * In your Submariner workspace, run the following test: 
 
 [source,bash]
 ----
-subctl verify --verbose --connectivity only --context <from_context> --tocontext <to_context> --image-override submariner-nettest=quay.io/submariner/nettest:devel --packet-size 200
+subctl verify --verbose --only connectivity --context <from_context> --tocontext <to_context> --image-override submariner-nettest=quay.io/submariner/nettest:devel --packet-size 200
 ----
 
-If the test succeeds with this small packet size, you can prevent more test failures by using Submariner to customize the transmission control protocol (TCP) minimum security standards (MSS) `clamping` value set. Customize the TCP MSS by completing the following steps: 
+If the test succeeds with this small packet size, you can resolve the connection issues by setting the transmission control protocol (TCP) maximum segment size (MSS). Set the TCP MSS by completing the following steps: 
 
-. Delete the `Submariner-postrouting` chain in the `mangle` table by running the following command on all the `RouteAgent` pods: 
-+
-[source,bash]
-----
-iptables -t mangle -F SUBMARINER-POSTROUTING
-----
-
-. Set the MSS `clamping` value set by annotating the `GW` node. For example, run the following command with a value of `1200`: 
+. Set the TCP MSS `clamping` value set by annotating the gateway node. For example, run the following command with a value of `1200`: 
 +
 [source,bash]
 ----
@@ -43,21 +36,17 @@ oc annotate node <node_name> submariner.io/tcp-clamp-mss=1200
 oc delete pod -n submariner-operator -l app=submariner-routeagent 
 ----
 
-[#symptom-submariner-dataplane-bare-metal-clusters]
-== Symptom: Submariner end-to-end test fails for bare metal clusters 
+[#symptom-submariner-data-plane-bare-metal-clusters]
+== Symptom: Submariner end-to-end test fails for bare-metal clusters 
 
-The end-to-end data plane tests might fail for the bare metal cluster for the following reasons: 
-
-* The `inter-cluster` tunnel is healthy. 
-* The virtual extensible local-area network (VXLAN) tunnels is used between clusters. 
-* The container network interface (CNI) is OpenShift software-defined networking (SDN). 
+The end-to-end data plane tests might fail for the bare-metal cluster if the container network interface (CNI) is OpenShift software-defined networking (SDN), or if the virtual extensible local-area network (VXLAN) is used for the `inter-cluster` tunnels.
 
 [#resolving-submariner-dataplane-bare-metal-clusters]
 == Resolving the problem: Disabling the hardware offloading 
 
-A bug in the User Datagram Protocal (UDP) can be the root cause for these reasons contributing to the end-to-end data plane test failures for bare metal clusters. To troubleshoot this bug complete the following step:
+A bug in the User Datagram Protocal (UDP) checksum calculation by the hardware can be the root cause for the end-to-end data plane test failures for bare-metal clusters. To troubleshoot this bug, complete the following step:
 
-* In your UDP, disable the hardware offloading by applying the following YAML:  
+* Disable the hardware offloading by applying the following YAML:  
 +
 [source,yaml]
 ----
@@ -94,7 +83,8 @@ spec:
           command: ["/bin/sh", "-c"]
           args: 
             - ethtool --offload vxlan-tunnel rx off tx off;
-              ethtool --offload vx-submariner rx off tx off;                                   sleep infinity
+              ethtool --offload vx-submariner rx off tx off;    
+sleep infinity                                           
       restartPolicy: Always
       securityContext: {}
       serviceAccount: submariner-routeagent

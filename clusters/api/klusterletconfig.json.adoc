@@ -499,7 +499,7 @@ __required__|Name of the klusterletconfig that you want to query.|string
 [[_rhacm-docs_apis_klusterletconfig_jsondeleteklusterletconfig]]
 === Delete a klusterletconfig
 ....
-DELETE /klusterletconfigs.config.open-cluster-management.io/v1alpha1/klusterletconfigs/{klusterletconfig_name} 
+DELETE /config.open-cluster-management.io/v1alpha1/klusterletconfigs/{klusterletconfig_name} 
 ....
 
 

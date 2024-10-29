@@ -534,7 +534,7 @@ __required__|Name of the klusterletconfig that you want to delete.|string
 
 ==== Tags
 
-* managedserviceaccounts.authentication.open-cluster-management.io
+* klusterletconfig.authentication.open-cluster-management.io
 
 
 

@@ -312,14 +312,6 @@ oc annotate --overwrite AgentServiceConfig agent unsupported.agent-install.opens
 
 The `selectorType: LaberSelector` setting is not supported when using the link:../../apis/clusterset.json.adoc#clustersets-api[Clustersets API]. The `selectorType: ExclusiveClusterSetLabel` setting is supported.
 
-[#bulk-destroy-kubevirt-hosted]
-=== Bulk destroy option on KubeVirt hosted cluster does not destroy hosted cluster
-//2.10:ACM-10174
-
-Using the bulk destroy option in the console on KubeVirt hosted clusters does not destroy the KubeVirt hosted clusters.
-
-Use the row action drop-down menu to destroy the KubeVirt hosted cluster instead.
-
 [#ocp-ded-support-curator]
 === The Cluster curator does not support {ocp-short} Dedicated clusters
 //2.10:ACM-10154

@@ -23,9 +23,7 @@ Flexibility:: Provides you with more power to deploy and install clusters by usi
 
 Troubleshooting:: Offers insightful information regarding cluster deployment status and rendered manifests, significantly enhancing the troubleshooting experience.
 
-For more information about the {ibio}, see link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/edge_computing/image-based-installation-for-single-node-openshift[Image-based installations for {sno}].
-//do we want to keep this or point to the new doc we created on our side like the other file:
-//To learn about and install the {ibio} for {sno}, see xref:../siteconfig/ibio_intro.adoc#ibio-intro[{ibio}], which I added below.
+For more information about the {ibio}, see xref:../siteconfig/ibio_intro.adoc#ibio-intro[{ibio}].
 
 For more information about the {ai}, see link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/installing_an_on-premise_cluster_with_the_agent-based_installer/index[Installing an on-premise cluster using the {ai}]
 

@@ -362,7 +362,7 @@ To avoid this error, upgrade your {ocp-short} to version 4.8.18 or later, or 4.9
 
 [#cluster-issues-msa]
 == Managed Service Account add-on
-//these sections are higher level features of the product; not sure this needs to be separated as a header like install or cluster management--a good way to tell is looking at the console. We would not have a section for every add-on.
+//these sections are higher level features of the product; not sure this needs to be separated as a header like install or cluster management?
 
 [#installnamespace-field-limit]
 === _installNamespace_ field can only have one value

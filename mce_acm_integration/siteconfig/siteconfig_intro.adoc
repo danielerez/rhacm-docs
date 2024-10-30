@@ -15,7 +15,7 @@ Isolation:: Separates the cluster definition from the installation method. The `
 
 Unification:: The {sco} unifies both Git and non-Git workflows. You can apply the `ClusterInstance` custom resource directly on the hub cluster, or synchronize resources through a GitOps solution, such as ArgoCD.
 
-Consistency:: Maintains a consistent API across all installation methods, whether you are using the {ai}, the Image Based Install Operator, or any other custom template-based approach.
+Consistency:: Maintains a consistent API across all installation methods, whether you are using the {ai}, the {ibio}, or any other custom template-based approach.
 
 Scalability:: Achieves greater scalability for each cluster than the `SiteConfig` kustomize plugin.
 
@@ -23,7 +23,7 @@ Flexibility:: Provides you with more power to deploy and install clusters by usi
 
 Troubleshooting:: Offers insightful information regarding cluster deployment status and rendered manifests, significantly enhancing the troubleshooting experience.
 
-For more information about the Image Based Install Operator, see link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/edge_computing/image-based-installation-for-single-node-openshift[Image-based installations for {sno}].
+For more information about the {ibio}, see link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/edge_computing/image-based-installation-for-single-node-openshift[Image-based installations for {sno}].
 //do we want to keep this or point to the new doc we created on our side like the other file:
 //To learn about and install the {ibio} for {sno}, see xref:../siteconfig/ibio_intro.adoc#ibio-intro[{ibio}], which I added below.
 

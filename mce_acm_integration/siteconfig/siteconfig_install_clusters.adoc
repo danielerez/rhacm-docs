@@ -1,7 +1,7 @@
 [#install-clusters]
 = Installing {sno} clusters with the {sco}
 
-Install your clusters with the {sco} by using the default cluster templates. Use the cluster templates for the Image-Based Install Operator to complete the procedure.
+Install your clusters with the {sco} by using the default installation templates. Use the installation templates for the Image-Based Install Operator to complete the procedure.
 
 *Required access:* Cluster administrator
 
@@ -9,7 +9,7 @@ Install your clusters with the {sco} by using the default cluster templates. Use
 == Prerequisites
 
 * If you are using GitOps ZTP, configure your GitOps ZTP environment. To configure your environment, see link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/edge_computing/ztp-preparing-the-hub-cluster[Preparing the hub cluster for GitOps ZTP].
-* You have the default cluster templates. To get familiar with the default templates, see xref:../siteconfig/siteconfig_installation_templates.adoc#default-templates[Default set of templates]
+* You have the default installation templates. To get familiar with the default templates, see xref:../siteconfig/siteconfig_installation_templates.adoc#default-templates[Default set of templates]
 * Install and configure the underlying operator of your choice. 
 ** To learn about and install the {ibio} for {sno}, see xref:../siteconfig/ibio_intro.adoc#ibio-intro[{ibio}].
 ** To install the {ai}, see link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/installing_an_on-premise_cluster_with_the_agent-based_installer/index[Installing an on-premise cluster with the {ai}].

@@ -41,7 +41,6 @@ Query all `KlusterletConfig` for more details.
 |Type|Name|Description|Schema
 |*Header*|*COOKIE* +
 __required__|Authorization: Bearer {ACCESS_TOKEN} ; ACCESS_TOKEN is the user access token.|string
-__required__|Name of the `KlusterletConfig` that you want to query.|string
 |===
 
 

@@ -251,8 +251,7 @@ When the `MulticlusterHub` resource prepares to install the {mce-short}, it impl
 
 The {acm-short} `MulticlusterHub` resource seeks the `CatalogSource` that contains the desired {mce-short} version that is compatible with the current {acm-short} version. 
 
-If there are multiple `CatalogSource` available, the `MulticlusterHub` resource selects the catalog source with the highest `spec.priority` value that is set within the resource instances. 
-
+If there are multiple `CatalogSource` resources available, the `MulticlusterHub` resource selects the catalog source with the highest `spec.priority` value that is set within the resource instances. 
 
 If a custom `CatalogSource` is created without a priority level, is set to `0` and used as the target `CatalogSource`.
 

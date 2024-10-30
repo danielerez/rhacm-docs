@@ -31,7 +31,7 @@ Cluster management known issues and limitations are part of the _Cluster lifecyc
 * <<cluster-issues-mce,Cluster management>>
 * <<cluster-issues-cim,Central infrastructure management>>
 * <<cluster-issues-msa,Managed Service Account add-on>>
-//??this is not a major feature of MCE is it?
+//??DM sent to Oliver about header?
 
 [#cluster-issues-install]
 == Installation 

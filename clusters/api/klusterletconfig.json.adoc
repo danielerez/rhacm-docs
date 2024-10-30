@@ -26,7 +26,7 @@ __Schemes__ : HTTPS
 [[_rhacm-docs_apis_klusterletconfig_jsonqueryklusterletconfigs]]
 === Query all KlusterletConfig 
 ....
-GET /config.open-cluster-management.io/v1alpha1/klusterletconfigs/{klusterletconfig_name}
+GET /config.open-cluster-management.io/v1alpha1/klusterletconfigs
 ....
 
 

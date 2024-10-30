@@ -1,8 +1,8 @@
 [#ibio-intro]
 = {ibio} 
 
-If you are using {sno}, then you need to install the {ibio} so that you can complete and manage the image-based {ocp-short} installation by using the same APIs as existing installation methods.
+If you are using {sco}, then you need to install the {ibio} so that you can complete and manage the image-based installation by using the same APIs as existing installation methods.
 
-For more information about the Image Based Install Operator, see link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/edge_computing/image-based-installation-for-single-node-openshift[Image-based installations for {sno}].
+For more information about the {ibio}, see link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/edge_computing/image-based-installation-for-single-node-openshift[Image-based installations for {sno}].
 
 //To enable {ibio}, see 

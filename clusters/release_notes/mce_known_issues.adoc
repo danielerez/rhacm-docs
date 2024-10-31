@@ -369,7 +369,7 @@ You cannot use a host inventory, or `InfraEnv` custom resource, to both boot wit
 [#install-sno-ocp-infra]
 === A {sno} cluster installation requires a matching {ocp-short} version before 4.16 with {infra}
 
-If you want to install a {sno} cluster with an {ocp} version before 4.16, your `InfraEnv` custom resource and your booted host must use the same {ocp-short} version that you are using to install the cluster.
+If you want to install a {sno} cluster with an {ocp} version before 4.16, your `InfraEnv` custom resource and your booted host must use the same {ocp-short} version that you are using to install the {sno} cluster.
 
 Before you boot a host with the Discovery ISO, either create or edit your `InfraEnv` resource to include the following content:
 

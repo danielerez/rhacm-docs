@@ -364,7 +364,7 @@ To avoid this error, upgrade your {ocp-short} to version 4.8.18 or later, or 4.9
 === Cannot use host inventory to boot with the discovery image and add hosts automatically
 //2.12:ACM-14719
 
-You cannot use a host inventory, or `InfraEnv` custom resource, for both booting with the discovery image and adding hosts automatically. If you used your old `InfraEnv` for `BareMetalHost` and want to boot the image yourself, you can work around the issue by creating a new `InfraEnv`.
+You cannot use a host inventory, or `InfraEnv` custom resource, for both booting with the discovery image and adding hosts automatically. If you used your previous `InfraEnv` for `BareMetalHost`, and want to boot the image yourself, you can work around the issue by creating a new `InfraEnv`.
 
 [#cluster-issues-msa]
 == Managed Service Account add-on

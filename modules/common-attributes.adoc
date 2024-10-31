@@ -1,6 +1,7 @@
 :aap: Red Hat Ansible Automation Platform
 :aap-short: Ansible Automation Platform
 :ai: Assisted Installer
+:ibio: Image Based Install Operator
 :update-service: OpenShift Update Service
 :global-hub: multicluster global hub 
 :gate: Gatekeeper operator

@@ -1,7 +1,7 @@
 [#enable]
 = Enabling the {sco}
 
-Enable the {sco} to use the default cluster templates and install {sno} clusters at scale.
+Enable the {sco} to use the default installation templates and install {sno} clusters at scale.
 
 *Required access:* Cluster administrator
 
@@ -50,7 +50,7 @@ See the following example output:
 siteconfig-controller-manager-6fdd86cc64-sdg87                    2/2     Running   0             43s
 ----
 
-. Verify that you have the default cluster templates by running the following command on the hub cluster:
+. Verify that you have the default installation templates by running the following command on the hub cluster:
 
 +
 [source,terminal]

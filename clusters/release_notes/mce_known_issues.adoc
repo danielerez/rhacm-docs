@@ -328,10 +328,10 @@ You can specify a custom ingress domain by using the `ClusterDeployment` resourc
 == Central infrastructure management
 
 [#iso-image-name-too-long]
-=== Cluster provisioning with Infrastructure Operator fails
+=== Cluster provisioning with {infra} fails
 //2.4:17411
 
-When creating {ocp-short} clusters by using the Infrastructure Operator, the file name of the ISO image might be too long. The long image name causes the image provisioning and the cluster provisioning to fail. To determine if this is the problem, complete the following steps: 
+When creating {ocp-short} clusters by using the {infra}, the file name of the ISO image might be too long. The long image name causes the image provisioning and the cluster provisioning to fail. To determine if this is the problem, complete the following steps: 
 
 . View the bare metal host information for the cluster that you are provisioning by running the following command: 
 +

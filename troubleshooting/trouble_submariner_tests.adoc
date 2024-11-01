@@ -6,7 +6,7 @@ After running Submariner end-to-end tests, you might get failures. Use the follo
 [#symptom-submariner-data-plane]
 == Symptom: Submariner end-to-end data plane test fails
 
-When the end-to-end data plane tests fails, the Submariner tests show that the connector pod can connect to the listener pod, but later the connector pod gets stuck in the `listening` phase. 
+When the end-to-end data plane test fails, the Submariner tests show that the connector pod can connect to the listener pod, but later the connector pod gets stuck in the `listening` phase. 
 
 [#resolving-submariner-data-plane]
 == Resolving the problem: Running a data plane test with a small packet size 

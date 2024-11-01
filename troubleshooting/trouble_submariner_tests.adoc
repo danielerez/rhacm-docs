@@ -30,7 +30,7 @@ If the test succeeds with this small packet size, you can resolve the connection
 oc annotate node <node_name> submariner.io/tcp-clamp-mss=1200
 ----
 
-. Restart all the `RouteAgent` pods by running the following commands: 
+. Restart all the `RouteAgent` pods by running the following command: 
 
 +
 [source,bash]

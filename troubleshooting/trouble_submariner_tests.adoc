@@ -46,7 +46,7 @@ The end-to-end data plane tests might fail for the bare-metal cluster if the con
 [#resolving-submariner-dataplane-bare-metal-clusters]
 == Resolving the problem: Submariner end-to-end test fails for bare-metal clusters 
 
-A bug in the User Datagram Protocal (UDP) checksum calculation by the hardware can be the root cause for the end-to-end data plane test failures for bare-metal clusters. To troubleshoot this bug, disable the hardware offloading by applying the following YAML:  
+A bug in the User Datagram Protocal (UDP) checksum calculation by the hardware can be the root cause for the end-to-end data plane test failures for bare-metal clusters. To troubleshoot this bug, disable the hardware offloading by applying the following YAML file:  
 
 [source,yaml]
 ----

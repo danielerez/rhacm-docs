@@ -22,7 +22,7 @@ subctl verify --verbose --only connectivity --context <from_context> --tocontext
 
 If the test succeeds with this small packet size, you can resolve the connection issues by setting the transmission control protocol (TCP) maximum segment size (MSS). Set the TCP MSS by completing the following steps: 
 
-. Set the TCP MSS `clamping` value set by annotating the gateway node. For example, run the following command with a value of `1200`: 
+. Set the TCP MSS `clamping` value by annotating the gateway node. For example, run the following command with a value of `1200`: 
 +
 [source,bash]
 ----

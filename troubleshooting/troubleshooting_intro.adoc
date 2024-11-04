@@ -85,4 +85,6 @@ To view the main documentation for the Submariner networking service and service
 
 - xref:../troubleshooting/trouble_submariner_general.adoc#trouble-submariner-general[Troubleshooting Submariner not connecting after installation - general information]
 
-- xref:../troubleshooting/trouble_submariner_degraded.adoc#trouble-submariner-degraded[Troubleshooting Submariner add-on status is degraded]
+- link:../troubleshooting/trouble_submariner_degraded.adoc#trouble-submariner-degraded[Troubleshooting Submariner add-on status is degraded]
+
+- xref:../troubleshooting/trouble_submariner_tests.adoc#trouble-submariner-test-failure[Troubleshooting Submariner end-to-end test failures]

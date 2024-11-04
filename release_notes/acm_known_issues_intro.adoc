@@ -23,7 +23,7 @@ Or consider a troubleshooting topic.
 
 Review the known issues for application management. The following list contains known issues for this release, or known issues that continued from the previous release. 
 
-*Note:* Cluster management or _Cluster lifecycle_ is provided by the {mce-short} with or without {acm-short}. The following known issues and limitations for cluster management that apply to {acm-short}, or {mce-short} that is later integrated with {acm-short}. Other cluster management known issues are located in the Cluster lifecyle documentation at link:../clusters/release_notes/known_issues.adoc#known-issues-mce[Cluster lifecyle known issues and limitations]. 
+*Note:* Cluster management or _Cluster lifecycle_ is provided by the {mce-short} with or without {acm-short}. The following known issues and limitations for cluster management that apply to {acm-short}, or {mce-short} that is later integrated with {acm-short}. Other Cluster lifecycle known issues are located in the link:../clusters/release_notes/known_issues.adoc#known-issues-mce[Cluster lifecyle known issues and limitations]. 
 
 * xref:../release_notes/known_issues_install.adoc#known-issues-install[Installation known issues]
 * xref:../release_notes/known_issues_continuity.adoc#known-issues-continuity[Business continuity known issues]

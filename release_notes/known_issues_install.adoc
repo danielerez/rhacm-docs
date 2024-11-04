@@ -35,7 +35,6 @@ Uninstalling {acm-short} from {ocp-short} can cause issues if you later want to 
 
 Follow the link:../cleanup_reinstall.adoc#cleanup-reinstall[Cleaning up artifacts before reinstalling] procedure to prevent this problem.
 
-
 [#install-arm-diable]
 == Infrastructure operator error with ARM converged flow
 //2.9: 8558
@@ -71,29 +70,3 @@ oc annotate --overwrite AgentServiceConfig agent unsupported.agent-install.opens
 ----
 
 The agent appears in the inventory when the issue is resolved.
-
-[#upgrade-pod-not-up]
-== Pods might not come back up after upgrading {acm-short}
-// 2.5, 2.4: 23730 -//very old, we need to consider removing
-
-After upgrading {acm-short} to a new version, a few pods that belong to a `StatefulSet` might remain in a `failed` state. This infrequent event is caused by a known link:https://github.com/kubernetes/kubernetes/issues/60164[Kubernetes issue].
-
-As a workaround for this problem, delete the failed pod. Kubernetes automatically relaunches it with the correct settings.
-
-[#openshift-container-platform-cluster-upgrade-failed-status]
-== OpenShift Container Platform cluster upgrade failed status
-// 2.0.0:3442// we should document an OCP known issue. I did not add this and have been vocal against this. It is better to point to their known issues
-
-When an {ocp-short} cluster is in the upgrade stage, the cluster pods are restarted and the cluster might remain in `upgrade failed` status for a variation of 1-5 minutes. This behavior is expected and resolves after a few minutes.
-
-[#create-multiclusterengine-button-not-working]
-== Create MultiClusterEngine button not working
-//2.6:25641---//very old, we need to consider removing
-
-After installing {acm} in the {ocp} console, a pop-up window with the following message appears:
-
-`MultiClusterEngine required`
-
-`Create a MultiClusterEngine instance to use this Operator.`
-
-The *Create MultiClusterEngine* button in the pop-up window message might not work. To work around the issue, select *Create instance* in the MultiClusterEngine tile in the Provided APIs section.

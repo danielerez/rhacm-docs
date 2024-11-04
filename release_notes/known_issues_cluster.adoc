@@ -23,7 +23,7 @@ Or consider a troubleshooting topic.
 
 Review the known issues for cluster management with {acm-short}. The following list contains known issues and limitations for this release, or known issues that continued from the previous release.
 
-For Cluster lifecycle with the {mce} known issues, see link:../clusters/release_notes/known_issues.adoc#known-issues-mce[Cluster lifecycle known issues and limitations] in the {mce-short} documentation.
+For Cluster lifecycle with the {mce} known issues, see link:../clusters/release_notes/mce_known_issues.adoc#known-issues-mce[Cluster lifecycle known issues and limitations] in the {mce-short} documentation.
 
 [#hub-cluster-one-way-limits]
 == Hub cluster communication limitations

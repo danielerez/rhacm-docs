@@ -33,7 +33,9 @@ Access the link:https://access.redhat.com/articles/7086905[{acm-short} Support m
 [#install-acm-whats-new]
 == Installation
 
-* You can enable the `SiteConfig` component from the `MultiClusterHub` custom resource that is deployed on your cluster. By default, the `SiteConfig` component is disabled. Learn more at link:../install/adv_config_install.adoc#advanced-config-hub[MultiClusterHub advanced configuration]. Learn more about {sco} at link:../mce_acm_integration/siteconfig/siteconfig_intro.adoc#siteconfig-intro[{sco}]
+* You can enable the `SiteConfig` component from the `MultiClusterHub` custom resource that is deployed on your cluster. By default, the `SiteConfig` component is disabled. Learn more at link:../install/adv_config_install.adoc#advanced-config-hub[MultiClusterHub advanced configuration]. Learn more about {sco} at link:../mce_acm_integration/siteconfig/siteconfig_intro.adoc#siteconfig-intro[{sco}].
+
+* Now when the `MultiClusterHub` resource prepares to install the {mce-short}, it implements `CatalogSource` priority as criteria. The {acm-short} `MultiClusterHub` resource seeks the `CatalogSource` that contains the desired {mce-short} version that is compatible with the current {acm-short} version. Learn more in the _Catalog source priority_ section in link:../install/install_disconnected.adoc#install-on-disconnected-networks[Install in disconnected network environments].
 
 [#console-whats-new]
 == Console
@@ -42,22 +44,7 @@ Learn about what is new in the {acm-short} integrated console.
 
 * Command line interface (CLI) downloads are now available in the console, which are available from the `acm-cli` container image and are specified with the operating system and architecture. See link:../console/console.adoc#command-line-tools[Command line tools] to access command line interface (CLI) downloads, such as the `PolicyGenerator` and `policytools`.
 
-* You can now view more information about your cluster when you enable the _Fleet view_ switch. The following summary cards are redisigned:
-
-+
-- Cluster
-- Application types
-- Policies
-- Cluster versions
-
-+
-The following new summary cards are available: 
-
-- Cluster version
-- Nodes
-- Cluster recommendations
-- Cluster health
-- Personalized view of your resources
+* View more information about your cluster when you enable the _Fleet view_ switch. Many summary cards are redesigned, such as _Cluster_ and _Application types_ cards. Additionally, many new summary cards are available, such as _Cluster recommendations_, _Nodes_. See the numerous changes to summary cards in the product console.
 
 * You can now export data in a CSV file by using selecting the *Export* button. See link:../console/console_access.adoc#accessing-your-console[Accessing your console].
 
@@ -75,7 +62,7 @@ View other Cluster lifecycle tasks and support information at link:../clusters/a
 [#global-hub-whats-new]
 == multicluster global hub 
 
-* You can now have the `local-cluster` enabled on your managed hub clusters by importing your managed hub cluster in hosted mode. See link:../global_hub/global_hub_import_hub_hosted.adoc#global-hub-importing-in-hosted-mode[Importing a managed hub cluster in the hosted mode (Technology Preview)]. 
+* You can now enable the `local-cluster` on your managed hub clusters by importing your managed hub cluster in hosted mode. See link:../global_hub/global_hub_import_hub_hosted.adoc#global-hub-importing-in-hosted-mode[Importing a managed hub cluster in the hosted mode (Technology Preview)]. 
 
 * For other {global-hub} topics, see link:../global_hub/global_hub_overview.adoc#multicluster-global-hub[multicluster global hub]. 
 
@@ -110,13 +97,13 @@ See link:../observability/observe_environments_intro.adoc#observing-environments
 
 * To access the metadata of a root policy, you can now use the `.PolicyMetadata` hub cluster template variable. See the link:../governance/template_support_intro.adoc#template-comparison-table[Comparison of hub cluster and managed cluster templates].
 
-* To specify a service account to expand and control access for all hub cluster template lookups, you can now use the `hubTemplateOptions.serviceAccountName` field . See the link:../governance/template_support_intro.adoc#template-comparison-table[Comparison of hub cluster and managed cluster templates].
+* You can now use the `hubTemplateOptions.serviceAccountName` field to specify a service account to expand and control access for all hub cluster template lookups. See the link:../governance/template_support_intro.adoc#template-comparison-table[Comparison of hub cluster and managed cluster templates].
 
 * To specify `containerArguments` in the {gate}, provide a list of argument names and values to pass to the container. See the link:../governance/gatekeeper_operator/config_gk_operator.adoc#gatekeeper-custom-resource[Gatekeeper custom resource sample].
 
 * The default value for `spec.evaluationInterval.compliant` and `spec.evaluationInterval.noncompliant` is `watch`, so now you can leverage Kubernetes API watches instead of polling the Kubernetes API server. See link:../governance/config_policy_ctrl.adoc#configuration-policy-yaml-table[Configuration policy YAML table] for more information.
 
-* New command line interface (CLI) downloads are now available in the console. You can download the `PolicyGenerator` to generate policies with Kustomize from Kubernetes manifests. You can also use `policytools` with a `template-resolver` subcommand to resolve templates locally. See link:../governance/policy_generator.adoc#policy-generator[Policy Generator] to learn more about the policy generator. See link:../governance/manage_policies.adoc#policy-cli-commands[Policy command line interface] for more details about `policytools`.
+* With the new command-line tools, you can download the `PolicyGenerator` to generate policies with Kustomize from Kubernetes manifests. You can also use `policytools` with a `template-resolver` subcommand to resolve templates locally. See link:../governance/policy_generator.adoc#policy-generator[Policy Generator] to learn more about the policy generator. See link:../governance/manage_policies.adoc#policy-cli-commands[Policy command line interface] for more details about `policytools`.
 
 * As you directly apply {acm-short} policies and Gatekeeper constraints on your managed clusters, you can now view the deployment of the policies in the _Discovered policies_ tab from the console. See link:../governance/pol_deploy_ext_tools.adoc#policy-deploy-ext-tools[Policy deployment with external tools].
 
@@ -138,6 +125,13 @@ See link:../governance/grc_intro.adoc#governance[Governance] to learn more about
 * With {acm-short} restore resources, you can set more `velero.io.restore` `spec` options. See link:../business_continuity/backup_restore/backup_restore.adoc#more-restore-samples[Using other restore samples].
 
 To learn about disaster recovery solutions for your hub cluster, see link:../business_continuity/backup_restore/backup_install.adoc#backup-intro[Backup and restore].
+
+[#mce-acm-integration]
+== {mce-short} with {acm-short} integration
+
+If you later installed {acm-short} after using stand-alone {mce-short}, you get access to all {acm-short} features. 
+
+* You can enable the `SiteConfig` component from the `MultiClusterHub` custom resource that is deployed on your cluster. Learn more at link:../install/adv_config_install.adoc#advanced-config-hub[MultiClusterHub advanced configuration]. Learn more about {sco} at link:../mce_acm_integration/siteconfig/siteconfig_intro.adoc#siteconfig-intro[{sco}]
 
 [#whats-new-learn-more]
 == Learn more about this release

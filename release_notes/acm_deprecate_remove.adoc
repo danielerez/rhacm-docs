@@ -8,6 +8,8 @@ Learn when parts of the product are deprecated or removed from {acm}. Consider t
 
 *Best practice:* Upgrade to the most recent version.
 
+*Important:* Cluster lifecycle components and features are within the {mce-short}, which is a software operator that enhances cluster fleet management. Release notes for {mce-short}-specific features are found in at link:../clusters/release_notes/mce_release_notes.adoc#mce-release-notes[Release notes for Cluster lifecycle with {mce-short}].
+
 [#api-deprecations-info]
 == API deprecations and removals
 

@@ -23,11 +23,7 @@ Or consider a troubleshooting topic.
 
 Review the known issues for application management. The following list contains known issues for this release, or known issues that continued from the previous release. 
 
-For your {ocp} cluster, see link:https://docs.redhat.com/documentation/en-us/openshift_container_platform/4.15/html/release_notes/#ocp-4-15-known-issues[{ocp-short} known issues]. 
-
-For more about deprecations and removals, see xref:../release_notes/acm_deprecate_remove.adoc#deprecations-removals-acm[Deprecations and removals for {acm-short}].
-
-Cluster management or _cluster lifecycle_ is provided by the {mce-short} with or without {acm-short}. See the following known issues and limitations for cluster management that apply to {acm-short} only. Most cluster management known issues are located in the cluster lifecyle documentation at link:../clusters/release_notes/known_issues.adoc#known-issues-mce[cluster lifecyle known issues and limitations]. 
+*Note:* Cluster management or _Cluster lifecycle_ is provided by the {mce-short} with or without {acm-short}. The following known issues and limitations for cluster management that apply to {acm-short}, or {mce-short} that is later integrated with {acm-short}. Other Cluster lifecycle known issues are located in the link:../clusters/release_notes/mce_known_issues.adoc#known-issues-mce[Cluster lifecyle known issues and limitations]. 
 
 * xref:../release_notes/known_issues_install.adoc#known-issues-install[Installation known issues]
 * xref:../release_notes/known_issues_continuity.adoc#known-issues-continuity[Business continuity known issues]
@@ -38,3 +34,7 @@ Cluster management or _cluster lifecycle_ is provided by the {mce-short} with or
 * xref:../release_notes/known_issues_governance.adoc#known-issues-governance[Governance known issues]
 * xref:../release_notes/known_issues_network.adoc#known-issues_submariner[Networking known issues]
 * xref:../release_notes/known_issues_global.adoc#known-issues-global-hub[Global Hub known issues]
+
+*Important:* {ocp-short} release notes are not documented in this product documentation. For your {ocp-short} cluster, see link:https://docs.redhat.com/documentation/en-us/openshift_container_platform/4.15[{ocp-short} release notes].
+
+For more about deprecations and removals, see xref:../release_notes/acm_deprecate_remove.adoc#deprecations-removals-acm[Deprecations and removals for {acm-short}].

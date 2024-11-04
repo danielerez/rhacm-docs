@@ -21,15 +21,16 @@ Known issue process and when to write:
 Or consider a troubleshooting topic.
 ////
 
-Review the known issues for Cluster lifecycle with {mce-short}. The following list contains known issues and limitations for this release, or known issues that continued from the previous release. For your {ocp-short} cluster, see link:https://docs.redhat.com/documentation/en-us/openshift_container_platform/4.14[{ocp-short} release notes].
+Review the known issues and limitations for _Cluster lifecycle with {mce-short}_ for this release, or known issues that continued from the previous release. 
 
-Cluster management known issues and limitations are part of the Cluster lifecycle with {mce-short} documentation.
+Cluster management known issues and limitations are part of the _Cluster lifecycle with {mce-short}_ documentation. Known issues for {mce-short) integrated _with_ {acm-short} are documented in the link:../../release_notes/acm_release_notes.adoc#acm-release-notes[Release notes for {acm-short}]. 
+
+*Important:* {ocp-short} release notes are not documented in this product documentation. For your {ocp-short} cluster, see link:https://docs.redhat.com/documentation/en-us/openshift_container_platform/4.15[{ocp-short} release notes].
 
 * <<cluster-issues-install,Installation>>
 * <<cluster-issues-mce,Cluster management>>
 * <<cluster-issues-cim,Central infrastructure management>>
 * <<cluster-issues-msa,Managed Service Account add-on>>
-//??
 
 [#cluster-issues-install]
 == Installation 
@@ -94,7 +95,7 @@ oc apply -f import.yaml
 [#cluster-issues-mce]
 == Cluster
 
-//Need a description here. I will fix later.
+Learn about known issues and limitations for Cluster lifecycle with {mce-short}, such as issues with creating, discovering, importing, and removing clusters, and more cluster management issues for {mce-short}. 
 
 [#limitation-with-nmstate]
 === Limitation with _nmstate_

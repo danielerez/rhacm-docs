@@ -312,7 +312,7 @@ __required__|The name of the ClusterInstance that you want to query.|string
 
 * link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/installing_an_on-premise_cluster_with_the_agent-based_installer/index[Installing an on-premise cluster using the {ai}]
 
-* xref:../siteconfig/ibio_intro.adoc#ibio-intro[{ibio}]
+* link:../mce_acm_integration/siteconfig/ibio_intro.adoc#ibio-intro[{ibio}]
 
 [options="header", cols=".^2a,.^3a,.^4a"]
 |===

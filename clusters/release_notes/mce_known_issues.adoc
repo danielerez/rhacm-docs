@@ -30,7 +30,6 @@ Cluster management known issues and limitations are part of the _Cluster lifecyc
 * <<cluster-issues-install,Installation>>
 * <<cluster-issues-mce,Cluster management>>
 * <<cluster-issues-cim,Central infrastructure management>>
-* <<cluster-issues-msa,Managed Service Account add-on>>
 
 [#cluster-issues-install]
 == Installation 
@@ -91,6 +90,12 @@ oc get secret local-cluster-import -n local-cluster -o jsonpath={.data.import\.y
 ----
 oc apply -f import.yaml
 ----
+
+[#installnamespace-field-limit]
+=== _installNamespace_ field can only have one value
+//2.9:ACM-7523
+
+When enabling the `managed-serviceaccount` add-on, the `installNamespace` field in the `ManagedClusterAddOn` resource must have `open-cluster-management-agent-addon` as the value. Other values are ignored. The `managed-serviceaccount` add-on agent is always deployed in the `open-cluster-management-agent-addon` namespace on the managed cluster.
 
 [#cluster-issues-mce]
 == Cluster
@@ -366,16 +371,6 @@ To avoid this error, upgrade your {ocp-short} to version 4.8.18 or later, or 4.9
 //2.12:ACM-14719
 
 You cannot use a host inventory, or `InfraEnv` custom resource, to both boot with the discovery image and add hosts automatically. If you used your previous `InfraEnv` resource for the `BareMetalHost` resource, and you want to boot the image yourself, you can work around the issue by creating a new `InfraEnv` resource.
-
-[#cluster-issues-msa]
-== Managed Service Account add-on
-//these sections are higher level features of the product; not sure this needs to be separated as a header like install or cluster management?
-
-[#installnamespace-field-limit]
-=== _installNamespace_ field can only have one value
-//2.9:ACM-7523
-
-When enabling the `managed-serviceaccount` add-on, the `installNamespace` field in the `ManagedClusterAddOn` resource must have `open-cluster-management-agent-addon` as the value. Other values are ignored. The `managed-serviceaccount` add-on agent is always deployed in the `open-cluster-management-agent-addon` namespace on the managed cluster.
 
 [#settings-limit-msa-agent]
 === _tolerations_ and _nodeSelector_ settings do not affect the _managed-serviceaccount_ agent

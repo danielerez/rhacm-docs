@@ -253,7 +253,7 @@ The {acm-short} `MulticlusterHub` resource seeks the `CatalogSource` that contai
 
 If there are multiple `CatalogSource` resources available, the `MulticlusterHub` resource selects the catalog source with the highest `spec.priority` value that is set within the resource instances. 
 
-If a custom `CatalogSource` is created without a priority level, is set to `0` and used as the target `CatalogSource`.
+If a custom `CatalogSource` is created without a priority level, it is set to `0` and used as the target `CatalogSource`.
 
 By default, the `redhat-operators` priority is set to `-100`, as displayed in the following example `CatalogSource`:
 

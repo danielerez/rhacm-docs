@@ -3,6 +3,8 @@
 
 Learn about new features and enhancements, support, deprecations, removals, and Errata bug fixes.
 
+*Important:* Cluster lifecycle components and features are within the {mce-short}, which is a software operator that enhances cluster fleet management. Release notes for {mce-short}-specific features are found in at link:../clusters/release_notes/mce_release_notes.adoc#mce-release-notes[Release notes for Cluster lifecycle with {mce-short}].
+
 * xref:../release_notes/acm_whats_new.adoc#whats-new-acm[What's new for {acm-short}]
 * xref:../release_notes/acm_errata.adoc#errata-acm[Errata updates for {acm-short}]
 * xref:../release_notes/acm_known_issues_intro.adoc#known-issues-acm[Known issues and limitations for {acm-short}]
@@ -10,6 +12,8 @@ Learn about new features and enhancements, support, deprecations, removals, and 
 * xref:../release_notes/gdpr_readiness.adoc#red-hat-advanced-cluster-management-for-kubernetes-platform-considerations-for-gdpr-readiness[{acm} considerations for GDPR readiness]
 * xref:../release_notes/fips_readiness.adoc#fips-readiness[FIPS readiness]
 * xref:../release_notes/observability_support.adoc#observability-support[Observability support]
+
+*Important:* {ocp-short} release notes are not documented in this product documentation. For your {ocp-short} cluster, see link:https://docs.redhat.com/documentation/en-us/openshift_container_platform/4.15[{ocp-short} release notes].
 
 *Deprecated:* {acm-short} 2.7 and earlier versions are no longer supported. The documentation might remain available, but without any Errata or other updates.
 

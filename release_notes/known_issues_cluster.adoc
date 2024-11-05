@@ -23,7 +23,7 @@ Or consider a troubleshooting topic.
 
 Review the known issues for cluster management with {acm-short}. The following list contains known issues and limitations for this release, or known issues that continued from the previous release.
 
-For cluster lifecycle known issues, see link:../clusters/release_notes/known_issues.adoc#known-issues-mce[Cluser lifecycle known issues and limitations] in the {mce-short} documentation.
+For Cluster lifecycle with the {mce} known issues, see link:../clusters/release_notes/mce_known_issues.adoc#known-issues-mce[Cluster lifecycle known issues and limitations] in the {mce-short} documentation.
 
 [#hub-cluster-one-way-limits]
 == Hub cluster communication limitations
@@ -88,7 +88,6 @@ oc edit mch -n open-cluster-management multiclusterhub
 
 [#hub-managed-clusters-clock]
 == Hub cluster and managed clusters clock not synced
-// 2.1:5636
+// 2.1:5636 -//very old, we need to consider removing
 
 Hub cluster and manage cluster time might become out-of-sync, displaying in the console `unknown` and eventually `available` within a few minutes. Ensure that the {ocp-short} hub cluster time is configured correctly. See link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/html/installation_configuration/installing-customizing[Customizing nodes].
-

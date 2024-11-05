@@ -4,6 +4,7 @@ include::modules/common-attributes.adoc[]
 
 include::api.adoc[leveloffset=+1]
 include::cluster.json.adoc[leveloffset=+2]
+include::clusterinstance.json.adoc[leveloffset=+2]
 include::clusterset.json.adoc[leveloffset=+2]
 include::clustersetbinding.json.adoc[leveloffset=+2]
 include::clusterview.json.adoc[leveloffset=+2]

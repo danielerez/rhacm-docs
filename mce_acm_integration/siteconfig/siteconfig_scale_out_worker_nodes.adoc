@@ -15,11 +15,11 @@ Scale out your managed cluster that was installed by the {sco}. You can scale ou
 [#scale-out-annotation]
 == Adding a worker node
 
-Add a worker node by updating your `ClusterInstance` CR.
+Add a worker node by updating your `ClusterInstance` custom resource that is used to provision your cluster.
 
 Complete the following steps to add a worker node to the managed cluster:
 
-. Add a worker node and define the required fields in the `ClusterInstance` CR:
+. Define a new node object in the existing `ClusterInstance` custom resource:
 
 +
 [source,yaml]
@@ -39,10 +39,7 @@ spec:
 ...
 ----
 
-+
-For more information about the required and optional fields, see link:../../apis/clusterinstance.json.adoc#clusterinstance-api[ClusterInstance API].
-
-. Apply the changes.
+. Apply the changes. See the following options:
 
 .. If you are using {acm-short} without {gitops}, run the following command on the hub cluster:
 
@@ -54,51 +51,71 @@ oc apply -f <clusterinstance>.yaml
 
 .. If you are using GitOps ZTP, push to your Git repository and wait for Argo CD to synchronize the changes.
 
-[#scale-out-verification]
-=== Verifying worker node addition
-
-. Wait for the `BaremetalHost` resource of that worker node to be added. Monitor the process by running the following command on the hub cluster:
+. Verify that a new `BareMetalHost` resource is added by running the following command on the hub cluster:
 
 +
 [source,terminal]
 ----
-oc get bmh -n <managed_cluster_namespace> --watch
+oc get bmh -n <clusterinstance_namespace> --watch --kubeconfig <hub_cluster_kubeconfig_filename>
 ----
 
 +
-See the following example output for successful worker node addition:
-
-+
-[source,terminal]
-----
-NAME                                STATE            CONSUMER   ONLINE   ERROR   AGE
-master-node1.example.com            provisioned                 true             81m
-worker-node2.example.com            provisioning                true             44m
-----
-
-. Verify that the `Node`, `Agent`, and `BareMetalHost` resources are created.
-
-.. Verify that the `Node` resources are removed by running the following command on the hub cluster: 
+See the following example output:
 
 +
 [source,terminal]
 ----
-oc get managedclusterinfo/<managed_cluster_name> -n <managed_cluster_namespace> \
--o jsonpath='{range .status.nodeList[*]}{.name}{"\t"}{.conditions}{"\t"}{.labels}{"\n"}{end}'
+NAME                        STATE          CONSUMER   ONLINE   ERROR   AGE
+master-node1.example.com    provisioned               true             81m
+worker-node2.example.com    provisioning              true             44m
 ----
 
-.. Verify that the `Agent` resources are removed by running the following command on the hub cluster:
-
-+
-[source,terminal]
-----
-oc get agents -n <managed_cluster_namespace>
-----
-
-.. Verify that the `BareMetalHost` resources are removed by running the following command on the hub cluster:
+. Verify that a new `Agent` resource is added by running the following command on the hub cluster:
 
 +
 [source,terminal]
 ----
-oc get bmh -n <managed_cluster_namespace>
+oc get agents -n <clusterinstance_namespace> --kubeconfig <hub_cluster_kubeconfig_filename>
+----
+
++
+See the following example output:
+
++
+[source,terminal]
+----
+NAME                       CLUSTER                   APPROVED    ROLE     STAGE
+master-node1.example.com   <managed_cluster_name>    true        master   Done
+master-node2.example.com   <managed_cluster_name>    true        master   Done
+master-node3.example.com   <managed_cluster_name>    true        master   Done
+worker-node1.example.com   <managed_cluster_name>    false       worker 
+worker-node2.example.com   <managed_cluster_name>    true        worker   Starting installation
+worker-node2.example.com   <managed_cluster_name>    true        worker   Installing
+worker-node2.example.com   <managed_cluster_name>    true        worker   Writing image to disk
+worker-node2.example.com   <managed_cluster_name>    true        worker   Waiting for control plane
+worker-node2.example.com   <managed_cluster_name>    true        worker   Rebooting
+worker-node2.example.com   <managed_cluster_name>    true        worker   Joined
+worker-node2.example.com   <managed_cluster_name>    true        worker   Done
+----
+
+. Verify that a new `Node` resource is added by running the following command on the managed cluster:
+
++
+[source,terminal]
+----
+oc get nodes --kubeconfig <managed_cluster_kubeconfig_filename>
+----
+
++
+See the following example output:
+
++
+[source,terminal]
+----
+NAME                       STATUS    ROLES                  AGE   VERSION
+worker-node2.example.com   Ready     worker                 1h    v1.30.5
+worker-node1.example.com   Ready     worker                 19h   v1.30.5
+master-node1.example.com   Ready     control-plane,master   19h   v1.30.5
+master-node2.example.com   Ready     control-plane,master   19h   v1.30.5
+master-node3.example.com   Ready     control-plane,master   19h   v1.30.5
 ----

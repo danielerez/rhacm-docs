@@ -360,7 +360,7 @@ spec:
 [#config-hub-kube-api-server]
 == Configuring the hub cluster `KubeAPIServer` verification strategy
 
-Managed clusters communicate with the hub cluster through a mutual connection with the {ocp-short} `KubeAPIServer` external load balancer. An internal {ocp-short} cluster certificate authority (CA) issues the default {ocp-short} `KubeAPIServer` certificate when you install {oc-short}. The {mce} automatically detects and passes the certificate to managed clusters in the `bootstrap-kubeconfig-secret` namespace.
+Managed clusters communicate with the hub cluster through a mutual connection with the {ocp-short} `KubeAPIServer` external load balancer. An internal {ocp-short} cluster certificate authority (CA) issues the default {ocp-short} `KubeAPIServer` certificate when you install {ocp-short}. The {mce} automatically detects and passes the certificate to managed clusters in the `bootstrap-kubeconfig-secret` namespace.
 
 If your automatically detected certificate does not work, you can manually configure a strategy configuration in the `KlusterletConfig` resource. Manually configuring the a strategy allows you to control how you verify the hub cluster `KubeAPIServer` certificate.
 

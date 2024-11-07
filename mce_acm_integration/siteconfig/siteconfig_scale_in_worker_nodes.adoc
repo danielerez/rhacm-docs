@@ -12,14 +12,14 @@ Scale in your managed cluster that was installed by the {sco}. You can scale in 
 * You have the default templates. To get familiar with the default templates, see xref:../siteconfig/siteconfig_installation_templates.adoc#default-templates[Default set of templates]
 * You have installed your cluster with the {sco}. To install a cluster with the {sco}, see xref:../siteconfig/siteconfig_install_clusters.adoc#install-clusters[Installing {sno} clusters with the {sco}]
 
-[#scale-in-annotation]
+[#scale-add-annotation]
 == Adding an annotation to your worker node
 
-Add an annotation to mark the worker node for removal.
+Add an annotation to your worker node for removal.
 
-Complete the following steps to remove a worker node from the managed cluster:
+Complete the following steps to annotate worker node from the managed cluster:
 
-. Add an annotation in the `extraAnnotations` field of the worker node entry in the `ClusterInstance` custom resource:
+. Add an annotation in the `extraAnnotations` field of the worker node entry in the `ClusterInstance` custom resource that is used to provision your cluster:
 
 +
 [source,yaml]
@@ -48,32 +48,36 @@ oc apply -f <clusterinstance>.yaml
 
 .. If you are using GitOps ZTP, push to your Git repository and wait for Argo CD to synchronize the changes.
 
-. Wait for the `BaremetalHost` resource of that worker node to be deleted. Monitor the process by running the following command on the hub cluster:
+. Verify that the annotation is applied to the `BaremetalHost` worker resource by running the following command on the hub cluster:
 
 +
 [source,terminal]
 ----
-oc get bmh -n <managed_cluster_namespace> --watch
+oc get bmh -n <clusterinstance_namespace> worker-node2.example.com -ojsonpath='{.metadata.annotations}' | jq
 ----
 
 +
-See the following example output for successful worker node deletion:
-
-+
+See the following example output for successful application of the annotation:
 [source,terminal]
 ----
-NAME                                STATE            CONSUMER   ONLINE   ERROR   AGE
-master-node1.example.com            provisioned                 true             81m
-worker-node2.example.com            deprovisioning              true             44m
-worker-node2.example.com            deleting                    true             50m
+{
+  "baremetalhost.metal3.io/detached": "assisted-service-controller",
+  "bmac.agent-install.openshift.io/hostname": "worker-node2.example.com",
+  "bmac.agent-install.openshift.io/remove-agent-and-node-on-delete": "true"
+  "bmac.agent-install.openshift.io/role": "master",
+  "inspect.metal3.io": "disabled",
+  "siteconfig.open-cluster-management.io/sync-wave": "1",
+}
 ----
 
-[#scale-in-prunemanifests]
-== Pruning the `BareMetalHost` resource of the worker node
+[#scale-in-delete-baremetal-host]
+== Deleting the `BareMetalHost` resource of the worker node
 
-Prune the `BareMetalHost` resource of the worker node that you want to delete to prevent reprovisioning of the node.
+Delete the `BareMetalHost` resource of the worker node that you want to be removed.
 
-. Specify the API version and kind of the `BareMetalHost` resource in the node-level `pruneManifests` field:
+Complete the following steps to remove a worker node from the managed cluster:
+
+. Update the node object that you want to delete in your existing `ClusterInstance` custom resource with the following configuration:
 
 +
 [source,yaml]
@@ -82,7 +86,7 @@ Prune the `BareMetalHost` resource of the worker node that you want to delete to
 spec:
    ...
    nodes:
-     -hostName: "worker-node2.example.com"
+     - hostName: "worker-node2.example.com"
       ...
       pruneManifests:
         - apiVersion: metal3.io/v1alpha1
@@ -102,19 +106,25 @@ oc apply -f <clusterinstance>.yaml
 
 .. If you are using GitOps ZTP, push to your Git repository and wait for Argo CD to synchronize the changes.
 
-[#scale-in-delete-verification]
-=== Verifying worker node deletion
-
-Verify that the `Node`, `Agent`, and `BareMetalHost` resources are removed.
-
-
-. Verify that the `Node` resources are removed by running the following command on the hub cluster:
+. Verify that the `BareMetalHost` resources are removed by running the following command on the hub cluster:
 
 +
 [source,terminal]
 ----
-oc get managedclusterinfo/<managed_cluster_name> -n <managed_cluster_namespace>  \
--o jsonpath='{range .status.nodeList[*]}{.name}{"\t"}{.conditions}{"\t"}{.labels}{"\n"}{end}'
+oc get bmh -n <clusterinstance_namespace> --watch --kubeconfig <hub_cluster_kubeconfig_filename>
+----
+
++
+See the following example output:
+
++
+[source,terminal]
+----
+NAME                        STATE                        CONSUMER         ONLINE   ERROR   AGE
+master-node1.example.com    provisioned                  true             81m
+worker-node2.example.com    deprovisioning               true             44m
+worker-node2.example.com    powering off before delete   true             20h
+worker-node2.example.com    deleting                     true             50m
 ----
 
 . Verify that the `Agent` resources are removed by running the following command on the hub cluster:
@@ -122,13 +132,40 @@ oc get managedclusterinfo/<managed_cluster_name> -n <managed_cluster_namespace> 
 +
 [source,terminal]
 ----
-oc get agents -n <managed_cluster_namespace> --watch
+oc get agents -n <clusterinstance_namespace> --kubeconfig <hub_cluster_kubeconfig_filename>
 ----
 
-. Verify that the `BareMetalHost` resources are removed by running the following command on the hub cluster:
++
+See the following example output:
 
 +
 [source,terminal]
 ----
-oc get bmh -n <managed_cluster_namespace> --watch
+NAME                       CLUSTER                  APPROVED   ROLE     STAGE
+master-node1.example.com   <managed_cluster_name>   true       master   Done
+master-node2.example.com   <managed_cluster_name>   true       master   Done
+master-node3.example.com   <managed_cluster_name>   true       master   Done
+worker-node1.example.com   <managed_cluster_name>   true       worker   Done
+----
+
+. Verify that the `Node` resources are removed by running the following command on the managed cluster:
+
++
+[source,terminal]
+----
+oc get nodes --kubeconfig <managed_cluster_kubeconfig_filename>
+----
+
++
+See the following example output:
+
++
+[source,terminal]
+----
+NAME                       STATUS                        ROLES                  AGE   VERSION
+worker-node2.example.com   NotReady,SchedulingDisabled   worker                 19h   v1.30.5
+worker-node1.example.com   Ready                         worker                 19h   v1.30.5
+master-node1.example.com   Ready                         control-plane,master   19h   v1.30.5
+master-node2.example.com   Ready                         control-plane,master   19h   v1.30.5
+master-node3.example.com   Ready                         control-plane,master   19h   v1.30.5
 ----

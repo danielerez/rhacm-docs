@@ -14,7 +14,15 @@ Install your clusters with the {sco} by using the default installation templates
 ** To learn about and install the {ibio} for {sno}, see xref:../siteconfig/ibio_intro.adoc#ibio-intro[{ibio}].
 ** To install the {ai}, see link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/installing_an_on-premise_cluster_with_the_agent-based_installer/index[Installing an on-premise cluster with the {ai}].
 
-[#install-clusters-target-ns]
+Complete the following steps to install a cluster with the {sco}:
+
+. <<install-create-target-ns,Creating the target namespace>>
+. <<install-create-pull-secret,Creating the pull secret>>
+. <<install-create-bmc-secret,Creating the BMC secret>>
+. <<install-create-extra-manifests,Optional: Creating the extra manifests>>
+. <<install-render-manifests,Rendering the installation manifests>>
+
+[#install-create-target-ns]
 == Creating the target namespace
 
 You need a target namespace when you create the pull secret, the BMC secret, extra manifest `ConfigMap` objects, and the `ClusterInstance` custom resource.
@@ -40,7 +48,7 @@ metadata:
 oc apply -f clusterinstance-namespace.yaml
 ----
 
-[#install-clusters-pull-secret]
+[#install-create-pull-secret]
 == Creating the pull secret
 
 You need a pull secret to enable your clusters to pull images from container registries. Complete the following steps to create a pull secret:
@@ -70,7 +78,7 @@ type: kubernetes.io/dockerconfigjson
 oc apply -f pull-secret.yaml
 ----
 
-[#install-clusters-bmc-secret]
+[#install-create-bmc-secret]
 == Creating the BMC secret
 
 You need a secret to connect to your baseboard management controller (BMC). Complete the following steps to create a secret:
@@ -100,7 +108,7 @@ type: Opaque
 oc apply -f example-bmc-secret.yaml
 ----
 
-[#install-clusters-extra-manifests]
+[#install-create-extra-manifests]
 == Optional: Creating the extra manifests
 
 You can create extra manifests that you need to reference in the `ClusterInstance` custom resource.
@@ -150,8 +158,8 @@ data:
 oc apply -f enable-crun.yaml
 ----
 
-[#install-clusters-reconcile-clusterinstance]
-== Render the installation manifests
+[#install-render-manifests]
+== Rendering the installation manifests
 
 Reference the templates and supporting manifests in the `ClusterInstance` custom resource.
 Complete the following steps to render the installation manifests by using the default cluster and node templates:
@@ -217,7 +225,7 @@ oc get clusterinstance <cluster_name> -n <target_namespace> -o yaml
 ----
 
 +
-See the following example output from the `status.conditions` section for successful manifest generation
+See the following example output from the `status.conditions` section for successful manifest generation:
 
 +
 [source,terminal]
@@ -236,4 +244,4 @@ type: RenderedTemplatesApplied
 oc get clusterinstance <cluster_name> -n <target_namespace> -o jsonpath='{.status.manifestsRendered}'
 ----
 
-For more information about status conditions, see _ClusterInstance CR conditions_.
+For more information about status conditions, see link:../../apis/clusterinstance.json.adoc#clusterinstance-api[ClusterInstance API].

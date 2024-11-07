@@ -367,7 +367,7 @@ If your automatically detected certificate does not work, you can manually confi
 See the examples in one of the following three strategies to learn how to manually configure a strategy:
 
 [#config-hub-kube-api-server-detect]
-=== Configuring the stragey with `UseAutoDetectedCABundle`
+=== Configuring the strategy with `UseAutoDetectedCABundle`
 
 `UseAutoDetectedCABundle` is the default strategy. The {mce-short} automatically detects the certificate on the hub cluster and merges the certificate configured in the `trustedCABundles` list of ConfigMap references to the real CA bundles, if there are any.
 
@@ -390,7 +390,7 @@ spec:
 ----
 
 [#config-hub-kube-api-server-system]
-=== Configuring the stragey with `UseSystemTruststore`
+=== Configuring the strategy with `UseSystemTruststore`
 
 With `UseSystemTruststore`, {mce-short} does not detect any certificate and ignores the certificates configured in the `trustedCABundles`. This configuration does not pass any certificate to the managed clusters. Instead, the managed clusters use certificates in their system trusted store to verify the hub cluster API server. This applies to situations where a public CA, such as `Let's Encrypt`, issues the hub cluster certificate. See the following example that uses `UseSystemTruststore`:
 
@@ -406,7 +406,7 @@ spec:
 ----
 
 [#config-hub-kube-api-server-custom]
-=== Configuring the stragey with `UseCustomCABundles`
+=== Configuring the strategy with `UseCustomCABundles`
 
 You can use `UseCustomCABundles` if you lknow the CA of the hub cluster API server and do not want {mce-short} to automatically detect it. For this strategy, {mce-short} adds your configured certificates from `trustedCABundles` to the managed clusters. See the following examples to learn how to use `UseCustomCABundles`:
 

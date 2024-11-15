@@ -340,7 +340,7 @@ If you define configurations in the `ManagedClusterAddon` to override some confi
 progressing... mca and work configs mismatch
 ----
 
-When you check the `ManagedClusterAddon` status, part of the configurations has an empty `spec` hash, even if the configurations exist. See the following example:
+When you check the `ManagedClusterAddon` status, part of the configurations have an empty `spec` hash, even if the configurations exist. See the following example:
 
 [source,yaml]
 ----

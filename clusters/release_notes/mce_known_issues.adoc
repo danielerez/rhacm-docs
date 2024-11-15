@@ -371,7 +371,7 @@ status:
     resource: managedproxyconfigurations 
 ----
 
-To resolve the issue, delete the `ManagedClusterAddon` by running the following command to reinstall and recover the ManagedClusterAddon. Replace `<cluster-name>` with the `ManagedClusterAddon` namespace. Replace `<addon-name>` with `ManagedClusterAddon` name:
+To resolve the issue, delete the `ManagedClusterAddon` by running the following command to reinstall and recover the `ManagedClusterAddon`. Replace `<cluster-name>` with the `ManagedClusterAddon` namespace. Replace `<addon-name>` with `ManagedClusterAddon` name:
 
 [source,bash]
 ----

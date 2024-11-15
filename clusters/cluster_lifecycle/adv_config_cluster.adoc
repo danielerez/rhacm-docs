@@ -369,7 +369,7 @@ See the examples in one of the following three strategies to learn how to manual
 [#config-hub-strategy-auto-detect-ca]
 === Configuring the strategy with `UseAutoDetectedCABundle`
 
-`UseAutoDetectedCABundle` is the default strategy. The {mce-short} automatically detects the certificate on the hub cluster and merges the certificate configured in the `trustedCABundles` list of ConfigMap references to the real CA bundles, if there are any.
+The default configuration strategy is `UseAutoDetectedCABundle`. The {mce-short} automatically detects the certificate on the hub cluster and merges the certificate configured in the `trustedCABundles` list of config map references to the real CA bundles, if there are any.
 
 The following example merges the automatically detected certificates from the hub cluster, and the certificates that you configured in the `new-ocp-ca` ConfigMap, and adds them to the managed cluster:
 

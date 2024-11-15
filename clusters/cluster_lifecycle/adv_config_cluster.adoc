@@ -405,7 +405,7 @@ spec:
    serverVerificationStrategy: UseSystemTruststore
 ----
 
-[#config-hub-kube-api-server-custom]
+[#config-hub-strategy-custom-ca]
 === Configuring the strategy with `UseCustomCABundles`
 
 You can use `UseCustomCABundles` if you know the CA of the hub cluster API server and do not want {mce-short} to automatically detect it. For this strategy, {mce-short} adds your configured certificates from the `trustedCABundles` parameter to the managed clusters. See the following examples to learn how to use `UseCustomCABundles`:

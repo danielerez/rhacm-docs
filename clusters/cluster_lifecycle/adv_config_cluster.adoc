@@ -371,7 +371,7 @@ See the examples in one of the following three strategies to learn how to manual
 
 The default configuration strategy is `UseAutoDetectedCABundle`. The {mce-short} automatically detects the certificate on the hub cluster and merges the certificate configured in the `trustedCABundles` list of config map references to the real CA bundles, if there are any.
 
-The following example merges the automatically detected certificates from the hub cluster, and the certificates that you configured in the `new-ocp-ca` ConfigMap, and adds them to the managed cluster:
+The following example merges the automatically detected certificates from the hub cluster and the certificates that you configured in the `new-ocp-ca` config map, and adds them to the managed cluster:
 
 [source,yaml]
 ----

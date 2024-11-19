@@ -131,7 +131,7 @@ To learn about disaster recovery solutions for your hub cluster, see link:../bus
 
 If you later installed {acm-short} after using stand-alone {mce-short}, you get access to all {acm-short} features. 
 
-* You can enable the `SiteConfig` component from the `MultiClusterHub` custom resource that is deployed on your cluster. Learn more at link:../install/adv_config_install.adoc#advanced-config-hub[MultiClusterHub advanced configuration]. Learn more about {sco} at link:./mce_acm_integration/siteconfig/siteconfig_intro.adoc#siteconfig-intro[{sco}]
+* You can enable the `SiteConfig` component from the `MultiClusterHub` custom resource that is deployed on your cluster. Learn more at link:../install/adv_config_install.adoc#advanced-config-hub[MultiClusterHub advanced configuration]. Learn more about {sco} at link:https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for_kubernetes/2.12/html/multicluster_engine_operator_with_red_hat_advanced_cluster_management/siteconfig-intro[SiteConfig].
 
 [#whats-new-learn-more]
 == Learn more about this release

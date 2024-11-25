@@ -11,7 +11,7 @@ If no release notes are listed, the product does not have an Errata release at t
 
 * Delivers updates to one or more product container images.
 
-* Fixes an error with the  *Clear all filters* button. (https://issues.redhat.com/browse/ACM-15277[ACM-15277])
+* Fixes an error with the *Clear all filters* button. (https://issues.redhat.com/browse/ACM-15277[ACM-15277])
 
 * Stops the `Detach clusters` action from deleting hosted clusters.  (https://issues.redhat.com/browse/ACM-15018[ACM-15018])
 

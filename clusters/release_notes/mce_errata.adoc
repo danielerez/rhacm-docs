@@ -15,7 +15,7 @@ If no release notes are listed, the product does not have an Errata release at t
 
 * Stops the `Detach clusters` action from deleting hosted clusters.  (https://issues.redhat.com/browse/ACM-15018[ACM-15018])
 
-* Prevents the managed clusters from being displayed in the Discovery tab in the console after updating valid OpenShift Cluster Manager (OCM) credentials to invalid ones. (https://issues.redhat.com/browse/ACM-15010[ACM-15010])
+* Prevents the managed clusters from being displayed in the _Discovery_ tab in the console after updating valid {ocm} credentials to invalid ones. (https://issues.redhat.com/browse/ACM-15010[ACM-15010])
 
 * Keeps the `cluster-proxy-addon` from getting stuck in the `Progressing` state. (https://issues.redhat.com/browse/ACM-14863[ACM-14863])
 

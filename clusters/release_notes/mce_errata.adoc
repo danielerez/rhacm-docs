@@ -6,3 +6,17 @@ For {mce-short}, the Errata updates are automatically applied when released.
 If no release notes are listed, the product does not have an Errata release at this time.
 
 *Important:* For reference, Jira links and Jira numbers might be added to the content and used internally. Links that require access might not be available for the user. 
+
+== Errata 2.7.1
+
+* Delivers updates to one or more product container images.
+
+* Fixes an issue where the *Clear all filters* button does not work. (https://issues.redhat.com/browse/ACM-15277[ACM-15277])
+
+* Fixes an issue where the `Detach clusters` action would destroy hosted clusters.  (https://issues.redhat.com/browse/ACM-15018[ACM-15018])
+
+* Fixes an issue where the `Spokes` continue to display in Discovery UI. (https://issues.redhat.com/browse/ACM-15010[ACM-15010])
+
+* Fixes an issue where the `cluster-proxy-addon` is stuck in a type of `progressing` state. (https://issues.redhat.com/browse/ACM-14863[ACM-14863])
+
+

@@ -11,12 +11,12 @@ If no release notes are listed, the product does not have an Errata release at t
 
 * Delivers updates to one or more product container images.
 
-* Fixes an issue where the *Clear all filters* button does not work. (https://issues.redhat.com/browse/ACM-15277[ACM-15277])
+* Fixes an error with the  *Clear all filters* button. (https://issues.redhat.com/browse/ACM-15277[ACM-15277])
 
-* Fixes an issue where the `Detach clusters` action would destroy hosted clusters.  (https://issues.redhat.com/browse/ACM-15018[ACM-15018])
+* Stops the `Detach clusters` action from deleting hosted clusters.  (https://issues.redhat.com/browse/ACM-15018[ACM-15018])
 
-* Fixes an issue where the `Spokes` continue to display in Discovery UI. (https://issues.redhat.com/browse/ACM-15010[ACM-15010])
+* Prevents the managed clusters from being displayed in the Discovery tab in the console after updating valid OpenShift Cluster Manager (OCM) credentials to invalid ones. (https://issues.redhat.com/browse/ACM-15010[ACM-15010])
 
-* Fixes an issue where the `cluster-proxy-addon` is stuck in a type of `progressing` state. (https://issues.redhat.com/browse/ACM-14863[ACM-14863])
+* Keeps the `cluster-proxy-addon` from getting stuck in the `Progressing` state. (https://issues.redhat.com/browse/ACM-14863[ACM-14863])
 
 

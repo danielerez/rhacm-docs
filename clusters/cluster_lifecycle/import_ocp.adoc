@@ -196,7 +196,7 @@ You can import the following resources and continue to manage your cluster with 
 - `Secret`
 ** Includes `admin-kubeconfig` and `bmc-secret`
 
-[#store-apply-cluster-resources]
+[#save-apply-cluster-resources]
 === Saving and applying managed cluster resources
 
 Complete the following steps to import managed cluster resources and apply them to a new hub cluster: 

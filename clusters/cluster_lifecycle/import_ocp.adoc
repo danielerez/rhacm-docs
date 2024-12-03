@@ -201,12 +201,12 @@ You can import the following resources and continue to manage your cluster with 
 
 Complete the following steps to import managed cluster resources and apply them to a new hub cluster: 
 
-. Get the `Agent` resource from your source hub cluster by running the following command. Replace values where needed:
+. Get your resources from your source hub cluster by running the following command. Repeat the command for every resource you want to import by replacing `<resource_name>` with the name of the resource. Replace other values where needed:
 
 +
 [source,bash]
 ----
-oc –kubeconfig <source_hub_kubeconfig> -n <managed_cluster_name> get agent <cluster_provisioning_namespace> -oyaml > agent.yaml
+oc –kubeconfig <source_hub_kubeconfig> -n <managed_cluster_name> get <resource_name> <cluster_provisioning_namespace> -oyaml > <resource_name>.yaml
 ----
 
 . Remove the `ownerReferences` property from the following resources before applying them on the target hub cluster:
@@ -219,7 +219,7 @@ oc –kubeconfig <source_hub_kubeconfig> -n <managed_cluster_name> get agent <cl
 yq --in-place -y 'del(.metadata.ownerReferences)' AgentClusterInstall.yaml
 ----
 
-.. `Secret` (admin-kubeconfig)
+.. `Secret` (`admin-kubeconfig`)
 
 +
 [source,bash]
@@ -241,7 +241,6 @@ oc –kubeconfig <target_hub_kubeconfig> delete ManagedCluster <cluster_name>
 
 *Note:* Replace `<resource_name>.yaml` with `.` if you want to apply the resources as a group instead of individually.
 
-+
 [source,bash]
 ----
 oc –kubeconfig <target_hub_kubeconfig> apply -f <resource_name>.yaml

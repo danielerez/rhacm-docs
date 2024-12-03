@@ -197,15 +197,15 @@ You can import the following resources and continue to manage your cluster with 
 
 | `AgentClassification`
 | Optional
-| 
+| Required if you want to classify Agents with a filter query.
 
 | `AgentClusterInstall`
 | Required
 | 
 
 | `BareMetalHost`
-| Required
-| 
+| Optional
+| Required if you are using the `baremetal` platform.
 
 | `ClusterDeployment`
 | Required
@@ -217,7 +217,7 @@ You can import the following resources and continue to manage your cluster with 
 
 | `NMStateConfig`
 | Optional
-| 
+| Required if you want to apply your network configuration on the hosts.
 
 | `ManagedCluster`
 | Required
@@ -225,7 +225,7 @@ You can import the following resources and continue to manage your cluster with 
 
 | `Secret`
 | Required
-| Includes `admin-kubeconfig` and `bmc-secret`
+| The `admin-kubeconfig` secret is required. The `bmc-secret` secret is only required if you are using `BareMetalHosts`.
 |===
 
 [#save-apply-cluster-resources]

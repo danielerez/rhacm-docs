@@ -179,7 +179,7 @@ oc get infraenv -n managed-cluster some-other-infraenv -ojson | jq ".status.<url
 
 If your {ocp-short} managed cluster was installed by the {ai}, you can move the managed cluster and its resources from one hub cluster to another hub cluster. 
 
-You can manage a cluster from a new hub cluster by creating a copy of the original resources and applying them to the new hub cluster. You can then scale down or scale up your managed cluster from the new hub cluster.
+You can manage a cluster from a new hub cluster by saving a copy of the original resources and applying them to the new hub cluster. You can then scale down or scale up your managed cluster from the new hub cluster.
 
 *Important:* You can only scale down imported {ocp-short} managed clusters if they were installed by the {ai}.
 
@@ -196,8 +196,8 @@ You can import the following resources and continue to manage your cluster with 
 - `Secret`
 ** Includes `admin-kubeconfig` and `bmc-secret`
 
-[#copy-apply-cluster-resources]
-=== Copying and applying managed cluster resources
+[#store-apply-cluster-resources]
+=== Saving and applying managed cluster resources
 
 Complete the following steps to import managed cluster resources and apply them to a new hub cluster: 
 

@@ -184,7 +184,7 @@ You can manage a cluster from a new hub cluster by saving a copy of the original
 *Important:* You can only scale down imported {ocp-short} managed clusters if they were installed by the {ai}.
 
 [#import-ocp-cluster-resources-table]
-== Manage cluster resource table
+=== Manage cluster resource table
 
 You can import the following resources and continue to manage your cluster with them:
 

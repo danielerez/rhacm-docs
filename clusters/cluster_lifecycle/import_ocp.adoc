@@ -226,6 +226,7 @@ You can import the following resources and continue to manage your cluster with 
 | `Secret`
 | Required
 | Includes `admin-kubeconfig` and `bmc-secret`
+|===
 
 [#save-apply-cluster-resources]
 === Saving and applying managed cluster resources

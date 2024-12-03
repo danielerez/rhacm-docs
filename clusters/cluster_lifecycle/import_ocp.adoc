@@ -199,7 +199,7 @@ You can import the following resources and continue to manage your cluster with 
 [#save-apply-cluster-resources]
 === Saving and applying managed cluster resources
 
-Complete the following steps to import managed cluster resources and apply them to a new hub cluster: 
+To save a copy of your managed cluster resources and apply them to a new hub cluster, complete the following steps:
 
 . Get your resources from your source hub cluster by running the following command. Repeat the command for every resource you want to import by replacing `<resource_name>` with the name of the resource. Replace other values where needed:
 

@@ -241,7 +241,7 @@ To save a copy of your managed cluster resources and apply them to a new hub clu
 oc –kubeconfig <source_hub_kubeconfig> -n <managed_cluster_name> get <resource_name> <cluster_provisioning_namespace> -oyaml > <resource_name>.yaml
 ----
 
-. Remove the `ownerReferences` property from the following resources before applying them on the target hub cluster:
+. Remove the `ownerReferences` property from the following resources by running the following commands:
 
 .. `AgentClusterInstall`
 
